@@ -598,6 +598,9 @@ protected:
 class ZipFileByteStream : public SeekableByteStream
 {
 public:
+    uint64_t _idx;
+    struct zip *_archive;
+
     ///
     /// Create a new unattached stream.
                             ZipFileByteStream() : SeekableByteStream(), _file(nullptr) {}
@@ -674,6 +677,8 @@ protected:
     struct zip_file*        _file;      ///< The underlying Zip file stream.
 	std::ios::openmode		_mode;		///< The mode used to open the file (used by Clone()).
 
+    size_type bytes_left;
+    size_type total_size;
 };
 
 #ifdef SUPPORT_ASYNC
