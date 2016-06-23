@@ -164,7 +164,7 @@ protected:
             // terminate if a closure throws an exception
             // this matches the paper's guidance
             try {
-                invoke(closure);
+                //invoke(closure);
             } catch (...) {
 #ifndef NDEBUG
                 std::exception_ptr __exc = std::current_exception();

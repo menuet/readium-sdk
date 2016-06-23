@@ -169,7 +169,7 @@ typedef signed long ssize_t;
 
 #if EPUB_PLATFORM(WIN) || EPUB_PLATFORM(WINRT)
 # define strncasecmp _strnicmp
-# define snprintf(buf,count,fmt,...) _snprintf_s(buf, count, count, fmt, __VA_ARGS__)
+//# define snprintf(buf,count,fmt,...) _snprintf_s(buf, count, count, fmt, __VA_ARGS__)
 #endif
 
 #if EPUB_PLATFORM(WINRT)

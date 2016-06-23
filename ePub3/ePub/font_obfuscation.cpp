@@ -40,11 +40,12 @@ using namespace ::Windows::Security::Cryptography::Core;
 #include "container.h"
 #include "package.h"
 #include "filter_manager.h"
+#include "../utilities/error_handler.h"
 
 EPUB3_BEGIN_NAMESPACE
 
 #if !EPUB_COMPILER_SUPPORTS(CXX_NONSTATIC_MEMBER_INIT) || EPUB_COMPILER(MSVC)
-const char * const FontObfuscator::FontObfuscationAlgorithmID = "http://www.idpf.org/2008/embedding";
+//const char * const FontObfuscator::FontObfuscationAlgorithmID = "http://www.idpf.org/2008/embedding";
 #endif
 
 const REGEX_NS::regex FontObfuscator::TypeCheck("(?:font/.*|application/(?:x-font-.*|font-.*|vnd.ms-(?:opentype|fontobject)))");
