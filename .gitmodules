@@ -1,0 +1,12 @@
+[submodule "ePub3/ThirdParty/libzip"]
+	path = ePub3/ThirdParty/libzip
+	url = https://github.com/menuet/libzip.git
+	branch = readium-sdk
+[submodule "ePub3/ThirdParty/zlib"]
+	path = ePub3/ThirdParty/zlib
+	url = https://github.com/menuet/zlib.git
+	branch = readium-sdk
+[submodule "ePub3/ThirdParty/libxml2"]
+	path = ePub3/ThirdParty/libxml2
+	url = https://github.com/menuet/libxml2.git
+	branch = readium-sdk
