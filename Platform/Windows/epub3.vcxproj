@@ -24,7 +24,7 @@
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -49,7 +49,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory)\..\..\ePub3;$(MSBuildProjectDirectory)\..\..\ePub3\utilities;$(MSBuildProjectDirectory)\..\..\ePub3\ePub;$(MSBuildProjectDirectory)\..\..\ePub3\xml;$(MSBuildProjectDirectory)\Prebuilt\Include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\google-url\src;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\utf8-cpp\include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\icu4c\include;$(MSBuildProjectDirectory)\..\..\Platform\Windows\include\libzip</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory)\ReadiumSDK\include;$(MSBuildProjectDirectory)\..\..\ePub3;$(MSBuildProjectDirectory)\..\..\ePub3\utilities;$(MSBuildProjectDirectory)\..\..\ePub3\ePub;$(MSBuildProjectDirectory)\..\..\ePub3\xml;$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\google-url\src;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\utf8-cpp\include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\icu4c\include;$(MSBuildProjectDirectory)\..\..\Platform\Windows\include\libzip</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_CONFIG_H;WIN32;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;BUILDING_EPUB3;_DEBUG;_LIB;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <SDLCheck>true</SDLCheck>
@@ -62,7 +62,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(MSBuildProjectDirectory)\Prebuilt\Lib\x86\libxml2_a.lib;$(MSBuildProjectDirectory)\Prebuilt\Lib\x86\zlib.lib;Advapi32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Lib\x86\libxml2_a.lib;$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Lib\x86\zlib.lib;Advapi32.lib;ws2_32.lib;User32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(MSBuildProjectDirectory)
@@ -80,12 +80,14 @@ cscript MakeHeaders.js</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;BUILDING_EPUB3;NDEBUG;_LIB;HAVE_CONFIG_H;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory)\..\..\ePub3;$(MSBuildProjectDirectory)\..\..\ePub3\utilities;$(MSBuildProjectDirectory)\..\..\ePub3\ePub;$(MSBuildProjectDirectory)\..\..\ePub3\xml;$(MSBuildProjectDirectory)\Prebuilt\Include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\google-url\src;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\utf8-cpp\include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\icu4c\include;$(MSBuildProjectDirectory)\..\..\Platform\Windows\include\libzip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory)\ReadiumSDK\include;$(MSBuildProjectDirectory)\..\..\ePub3;$(MSBuildProjectDirectory)\..\..\ePub3\utilities;$(MSBuildProjectDirectory)\..\..\ePub3\ePub;$(MSBuildProjectDirectory)\..\..\ePub3\xml;$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\google-url\src;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\utf8-cpp\include;$(MSBuildProjectDirectory)\..\..\ePub3\ThirdParty\icu4c\include;$(MSBuildProjectDirectory)\..\..\Platform\Windows\include\libzip</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Lib\x86\libxml2_a.lib;$(MSBuildProjectDirectory)\ReadiumSDK\Prebuilt\Lib\x86\zlib.lib;Advapi32.lib;ws2_32.lib;User32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(MSBuildProjectDirectory)
@@ -132,6 +134,7 @@ cscript MakeHeaders.js</Command>
     <ClCompile Include="..\..\ePub3\ePub\switch_preprocessor.cpp" />
     <ClCompile Include="..\..\ePub3\ePub\xpath_wrangler.cpp" />
     <ClCompile Include="..\..\ePub3\ePub\zip_archive.cpp" />
+    <ClCompile Include="..\..\ePub3\ThirdParty\google-url\base\logging.cc" />
     <ClCompile Include="..\..\ePub3\ThirdParty\google-url\base\string16.cc" />
     <ClCompile Include="..\..\ePub3\ThirdParty\google-url\src\gurl.cc" />
     <ClCompile Include="..\..\ePub3\ThirdParty\google-url\src\url_canon_cpp11.cc" />
@@ -240,18 +243,6 @@ cscript MakeHeaders.js</Command>
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_supports.c" />
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_tell.c" />
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_tell_write.c" />
-    <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_win32a.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_win32handle.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_win32utf8.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_win32w.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_window.c" />
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_write.c" />
     <ClCompile Include="..\..\ePub3\ThirdParty\libzip\zip_source_zip.c" />
