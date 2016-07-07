@@ -19,7 +19,7 @@
 //  Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "zip_archive.h"
-#include <libzip/zipint.h>
+#include <libzip/lib/zipint.h>
 #undef open     //undefine the macro because of further complation error
 #undef close    //undefine the macro because of further complation error
 

@@ -22,7 +22,7 @@
 #define __ePub3__zip_archive__
 
 #include <ePub3/archive.h>
-#include <libzip/zip.h>
+#include <libzip/lib/zip.h>
 #include <list>
 
 EPUB3_BEGIN_NAMESPACE
